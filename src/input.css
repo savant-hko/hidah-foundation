@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Line clamp for text truncation on mobile */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+@media (min-width: 640px) {
+    .line-clamp-none {
+        display: block;
+        -webkit-line-clamp: unset;
+    }
+}
+
+/* Extra small devices (phones, 320px and up) */
+@media (max-width: 480px) {
+    .xs\:h-56 {
+        height: 14rem;
+    }
+}
+
+/* Carousel dot styles */
+.carousel-dot,
+.carousel-dot-mobile {
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.bg-[#993b3c],
+.carousel-dot-mobile.bg-[#993b3c] {
+    transform: scale(1.3);
+}
+
+/* Smooth carousel transitions */
+#news-carousel,
+#news-carousel-mobile {
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Mobile carousel card styles */
+#news-carousel-mobile .bg-gray-50 {
+    transition: all 0.3s ease;
+}
+
+#news-carousel-mobile .bg-gray-50:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive adjustments for carousel dots */
+@media (max-width: 640px) {
+    .carousel-dot,
+    .carousel-dot-mobile {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .carousel-dot.bg-[#993b3c],
+    .carousel-dot-mobile.bg-[#993b3c] {
+        width: 16px;
+        border-radius: 4px;
+    }
+}
+
+/* News loading spinner */
+#news-loading .animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}

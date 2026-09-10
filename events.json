@@ -1,0 +1,148 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Annual Charity Gala 2026: An Evening of Hope and Impact",
+      "category": "Fundraising",
+      "date": "2026-11-15",
+      "dateDisplay": "November 15, 2026",
+      "isUpcoming": true,
+      "image": "https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?w=800&q=80",
+      "excerpt": "Join us for an unforgettable evening celebrating our achievements and raising funds for our 2027 programs. Featuring live music, auctions, and inspiring stories from the communities we serve.",
+      "link": "#",
+      "location": "New York"
+    },
+    {
+      "id": 2,
+      "title": "A Safe and Functional Sports Environment for Students at Malaysian Tamil School",
+      "category": "Community Development",
+      "date": "2026-05-19",
+      "dateDisplay": "May 19, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1593113630400-ea4288922497?w=800&q=80",
+      "excerpt": "We partnered with local organizations to build a new sports facility, providing students with a safe and inspiring space for physical activity and personal growth.",
+      "link": "#",
+      "location": "Malaysia"
+    },
+    {
+      "id": 3,
+      "title": "Maharani Alumni Visit to Universiti Malaya: From Classroom Dreams to Campus Reality",
+      "category": "Education",
+      "date": "2026-05-08",
+      "dateDisplay": "May 8, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=800&q=80",
+      "excerpt": "Alumni shared their inspiring journeys with current students, bridging the gap between aspiration and achievement.",
+      "link": "#",
+      "location": "Malaysia"
+    },
+    {
+      "id": 4,
+      "title": "Small Actions, Lasting Impact: Advancing Sustainability Together",
+      "category": "Impact Stories",
+      "date": "2026-05-23",
+      "dateDisplay": "May 23, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=800&q=80",
+      "excerpt": "Our employees came together for a day of community service and environmental action, proving that collective small actions create lasting impact.",
+      "link": "#",
+      "location": "Global"
+    },
+    {
+      "id": 5,
+      "title": "Seen, Heard, Supported: A New Film on Our Work with Nepal's Chepang Community",
+      "category": "Empowerment",
+      "date": "2026-05-22",
+      "dateDisplay": "May 22, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1574958269340-fa927503f3dd?w=800&q=80",
+      "excerpt": "A powerful documentary showcasing the resilience of the Chepang community and the impact of our sustainable development projects.",
+      "link": "#",
+      "location": "Nepal"
+    },
+    {
+      "id": 6,
+      "title": "Building Sustainable Futures: New Water Filtration System Installed in Rural Kenya",
+      "category": "Community Development",
+      "date": "2026-05-15",
+      "dateDisplay": "May 15, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+      "excerpt": "A collaborative effort to provide clean water access to over 500 families, improving health and livelihoods.",
+      "link": "#",
+      "location": "Kenya"
+    },
+    {
+      "id": 7,
+      "title": "Mobile Health Clinics Reach Remote Villages in Guatemala",
+      "category": "Health",
+      "date": "2026-05-10",
+      "dateDisplay": "May 10, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+      "excerpt": "Our medical teams provided essential healthcare services to over 300 people in isolated communities.",
+      "link": "#",
+      "location": "Guatemala"
+    },
+    {
+      "id": 8,
+      "title": "New Learning Center Opens for Orphans in Indonesia",
+      "category": "Orphanage & Needs",
+      "date": "2026-05-05",
+      "dateDisplay": "May 5, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80",
+      "excerpt": "A dedicated space for education and creative expression, supporting the holistic development of vulnerable children.",
+      "link": "#",
+      "location": "Indonesia"
+    },
+    {
+      "id": 9,
+      "title": "Introducing Our New Corporate Film: A Closer Look at Global Impact",
+      "category": "News & Events",
+      "date": "2026-03-31",
+      "dateDisplay": "March 31, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&q=80",
+      "excerpt": "A cinematic journey through the communities we serve, showcasing the real people behind our programs and the lasting change we create together.",
+      "link": "#",
+      "location": "Global"
+    },
+    {
+      "id": 10,
+      "title": "Walk for Autism Malaysia: How Taarana Is Driving Autism Inclusion",
+      "category": "Community Development",
+      "date": "2026-04-17",
+      "dateDisplay": "April 17, 2026",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1593113630400-ea4288922497?w=800&q=80",
+      "excerpt": "Hundreds gathered to walk for autism awareness, breaking down barriers and creating a more inclusive society for all.",
+      "link": "#",
+      "location": "Malaysia"
+    },
+    {
+      "id": 11,
+      "title": "From Chan Inclu: Ghana's Journey to Educational Inclusion",
+      "category": "Education",
+      "date": "2025-11-03",
+      "dateDisplay": "November 3, 2025",
+      "isUpcoming": false,
+      "image": "https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?w=800&q=80",
+      "excerpt": "How community-led initiatives are ensuring every child has access to quality education in rural Ghana.",
+      "link": "#",
+      "location": "Ghana"
+    },
+    {
+      "id": 12,
+      "title": "Winter Food Drive: Providing Meals for 1,000 Families",
+      "category": "Orphanage & Needs",
+      "date": "2026-12-20",
+      "dateDisplay": "December 20, 2026",
+      "isUpcoming": true,
+      "image": "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=800&q=80",
+      "excerpt": "Join our winter food drive to help provide nutritious meals for over 1,000 families in need across our partner communities.",
+      "link": "#",
+      "location": "Global"
+    }
+  ]
+}

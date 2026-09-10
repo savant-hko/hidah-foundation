@@ -1,0 +1,20 @@
+# Node modules (never commit — huge folder, can be reinstalled)
+node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+
+# Environment
+.env
+.env.local
