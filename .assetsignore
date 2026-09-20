@@ -1,0 +1,7 @@
+node_modules/
+.git/
+.github/
+package.json
+package-lock.json
+tailwind.config.js
+wrangler.jsonc
