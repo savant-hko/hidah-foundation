@@ -39,18 +39,68 @@
     }
   });
 
-    // --- Scroll to Top Button (appears at bottom of page) ---
+  // --- Clean YouTube Embed (click thumbnail → swap to playable iframe) ---
+  (function() {
+    const container = document.getElementById('video-container');
+    if (!container) return;
+
+    const videoId = container.dataset.youtubeId;
+    if (!videoId || videoId === 'YOUR_VIDEO_ID') return;
+
+    let playerLoaded = false;
+
+    function loadPlayer() {
+      if (playerLoaded) return;
+      playerLoaded = true;
+
+      const params = new URLSearchParams({
+        autoplay: '1',
+        mute: '0',
+        rel: '0',
+        modestbranding: '1',
+        playsinline: '1',
+        iv_load_policy: '3',
+        
+      });
+
+      // Create the iframe
+      const iframe = document.createElement('iframe');
+      iframe.className = 'absolute inset-0 w-full h-full';
+      iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+      iframe.title = container.dataset.videoTitle || 'Video';
+      iframe.setAttribute('frameborder', '0');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen', '');
+
+      // Clear the thumbnail + play button, insert the iframe
+      container.innerHTML = '';
+      container.appendChild(iframe);
+
+      // Restore normal pointer behavior — this is the KEY fix
+      container.classList.remove('cursor-pointer', 'group');
+      container.style.cursor = 'default';
+      container.style.pointerEvents = 'auto'; // ← allow clicks to reach the iframe
+    }
+
+    // Use a one-time listener so we don't re-trigger
+    container.addEventListener('click', loadPlayer, { once: true });
+    container.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        loadPlayer();
+      }
+    }, { once: true });
+  })();
+
+  // --- Scroll to Top Button (appears at bottom of page) ---
   (function() {
     const scrollBtn = document.getElementById('scroll-to-top');
     if (!scrollBtn) return;
 
-    // Show button when user is near the bottom of the page
     const checkScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
-
-      // Show when within 300px of the bottom
       const nearBottom = scrollY + windowHeight >= documentHeight - 300;
 
       if (nearBottom) {
@@ -62,16 +112,12 @@
       }
     };
 
-    // Smooth scroll to top on click
     scrollBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Listen to scroll and resize
     window.addEventListener('scroll', checkScroll, { passive: true });
     window.addEventListener('resize', checkScroll);
-
-    // Initial check (in case page loads already scrolled)
     checkScroll();
   })();
 
@@ -82,9 +128,7 @@
       if (!modal) return;
       modal.classList.remove('hidden');
       modal.classList.add('flex');
-      // Lock body scroll
       document.body.style.overflow = 'hidden';
-      // Focus the close button for accessibility
       const closeBtn = modal.querySelector('.program-modal-close');
       if (closeBtn) closeBtn.focus();
     };
@@ -93,13 +137,11 @@
       if (!modal) return;
       modal.classList.add('hidden');
       modal.classList.remove('flex');
-      // Restore body scroll (only if no other modal open)
       if (!document.querySelector('.program-modal.flex')) {
         document.body.style.overflow = '';
       }
     };
 
-    // Open buttons
     document.querySelectorAll('.program-modal-trigger').forEach(btn => {
       btn.addEventListener('click', () => {
         const program = btn.getAttribute('data-program');
@@ -107,21 +149,18 @@
       });
     });
 
-    // Close buttons
     document.querySelectorAll('.program-modal-close').forEach(btn => {
       btn.addEventListener('click', () => {
         closeModal(btn.closest('.program-modal'));
       });
     });
 
-    // Click on backdrop
     document.querySelectorAll('.program-modal-backdrop').forEach(backdrop => {
       backdrop.addEventListener('click', () => {
         closeModal(backdrop.closest('.program-modal'));
       });
     });
 
-    // ESC key closes any open modal
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         const openModalEl = document.querySelector('.program-modal.flex');
@@ -185,33 +224,26 @@
     const loadingEl = document.getElementById('news-loading');
     const contentEl = document.getElementById('news-content');
 
-    // Track featured slideshow intervals for cleanup
     const featuredSlideshows = [];
 
-    // ============== HELPER FUNCTIONS ==============
-
-    // Format a date string (ISO) for display
     function formatDate(isoDate) {
       const date = new Date(isoDate);
       const options = { year: 'numeric', month: 'long', day: 'numeric' };
       return date.toLocaleDateString('en-US', options);
     }
 
-    // Get today's date (midnight)
     function todayMidnight() {
       const d = new Date();
       d.setHours(0, 0, 0, 0);
       return d;
     }
 
-    // Determine if an event is in the future
     function isFutureDate(isoDate) {
       const eventDate = new Date(isoDate);
       eventDate.setHours(0, 0, 0, 0);
       return eventDate >= todayMidnight();
     }
 
-    // Normalize an event's images into an array
     function getEventImages(event) {
       if (Array.isArray(event.images) && event.images.length > 0) {
         return event.images;
@@ -222,7 +254,6 @@
       return ['./media/logo.jpg'];
     }
 
-    // Build the featured card HTML (supports multiple images with auto-slideshow)
     function buildFeaturedCard(event) {
       const isUpcoming = event.isUpcoming || isFutureDate(event.date);
       const badgeClass = isUpcoming
@@ -281,14 +312,13 @@
           </div>
           <h3 class="text-base sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">${event.title}</h3>
           <p class="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">${event.excerpt}</p>
-          <a href="${event.link || '#'}" target=_blank class="inline-block text-[#993b3c] font-semibold hover:text-[#7f2f30] transition group-hover:translate-x-1 duration-200 text-sm sm:text-base">
+          <a href="${event.link || '#'}" target="_blank" class="inline-block text-[#993b3c] font-semibold hover:text-[#7f2f30] transition group-hover:translate-x-1 duration-200 text-sm sm:text-base">
             Read More →
           </a>
         </div>
       `;
     }
 
-    // Build a carousel slide HTML
     function buildSlide(event) {
       return `
         <div class="min-w-full p-0.5 sm:p-1">
@@ -300,13 +330,12 @@
             </div>
             <h5 class="font-bold text-gray-800 mb-1.5 sm:mb-2 text-xs sm:text-sm md:text-base line-clamp-2">${event.title}</h5>
             <p class="text-[11px] sm:text-xs md:text-sm text-gray-600 line-clamp-2 sm:line-clamp-3">${event.excerpt}</p>
-            <a href="${event.link || '#'}" target=_blank class="inline-block mt-2 sm:mt-3 text-[10px] sm:text-xs md:text-sm text-[#993b3c] font-semibold hover:text-[#7f2f30] transition">Read More →</a>
+            <a href="${event.link || '#'}" target="_blank" class="inline-block mt-2 sm:mt-3 text-[10px] sm:text-xs md:text-sm text-[#993b3c] font-semibold hover:text-[#7f2f30] transition">Read More →</a>
           </div>
         </div>
       `;
     }
 
-    // ============== FEATURED SLIDESHOW ==============
     function initFeaturedSlideshows() {
       featuredSlideshows.forEach(clearInterval);
       featuredSlideshows.length = 0;
@@ -366,7 +395,6 @@
       });
     }
 
-    // Render the news section with data
     function renderNews(events) {
       const today = todayMidnight();
 
@@ -424,7 +452,6 @@
       initCarousels(carouselEvents.length);
     }
 
-    // ============== CAROUSEL INITIALIZATION ==============
     function initCarousels(totalSlides) {
       function setupCarousel(carouselEl, prevBtnEl, nextBtnEl, dotsEl) {
         if (!carouselEl || !prevBtnEl || !nextBtnEl || !dotsEl.length) return;
@@ -513,7 +540,6 @@
       );
     }
 
-    // ============== LOAD JSON ==============
     fetch('./events.json?v=' + Date.now())
       .then(res => {
         if (!res.ok) throw new Error('Failed to load events.json');
