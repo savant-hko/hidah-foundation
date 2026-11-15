@@ -47,7 +47,25 @@
       "excerpt": "From 5th – 6th September 2026, HIDAH Humanitarian Foundation hosted an inspiring 2-Day Skills Development, Leadership & AI Training. The program was filled with learning, growth, confidence, creativity, connection, and empowerment.",
       "link": "https://www.facebook.com/share/p/1K66uxgGPF/?mibextid=wwXIfr",
       "location": "Ghana"
+    },
+    {
+      "id": 4,
+      "title": "HEALTHY SMILES, BRIGHTER FUTURES!",
+      "category": "Health",
+      "date": "2026-11-12",
+      "dateDisplay": "November 12, 2026",
+      "isUpcoming": false,
+      "images": [
+                "./media/events/2026_11_12/image1.jpg",
+                "./media/events/2026_11_12/image2.jpg",
+                "./media/events/2026_11_12/image3.jpg",
+                "./media/events/2026_11_12/image4.jpg"
+      ],
+      "excerpt": "On 12th November 2026, HIDAH Humanitarian Foundation in collaboration with Jacob Dental Clinic, led by Dr. Shumalia Baig (Dental Surgeon), visited Home of Taqwa Orphanage, Dodowa, to provide FREE DENTAL CARE for the students.The outreach focused on promoting oral health, educating children on proper dental hygiene and providing essential dental services.",
+      "link": "https://www.facebook.com/share/p/19NQT82CUt/?mibextid=wwXIfr",
+      "location": "Ghana"
     }
+    
     
   ]
 }
